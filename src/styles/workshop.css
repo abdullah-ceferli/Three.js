@@ -1,0 +1,34 @@
+/* Inventory and workshop: physical slots share one server-owned stack store. */
+#inventory-panel{height:100dvh}
+#inventory-panel .inventory-header{width:min(1460px,calc(100% - 40px))}
+#inventory-panel .inventory-body{width:min(1460px,calc(100% - 40px));grid-template-columns:minmax(270px,.7fr) minmax(560px,1.5fr);gap:28px;overflow-y:auto;align-content:start;padding-bottom:140px}
+#resource-list.inventory-bar{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+#resource-list .inventory-slot{display:block;border-radius:22%}
+.move-hint{margin:0 0 16px;color:#b8bcab;font-size:11px;line-height:1.5}
+.durability{position:absolute;z-index:6;bottom:8px;left:12%;width:62%;height:4px;border-radius:3px;background:linear-gradient(to right,#b9d787 var(--durability),#302c25 var(--durability))}
+.durability.broken{background:#c66450}
+.recipe-search-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#cbb99b}
+#recipe-search{display:block;width:100%;margin:8px 0 12px;padding:13px 15px;border:1px solid #aa805856;border-radius:12px;background:#e5c58f;color:#302719;outline-offset:3px}
+#recipe-categories{display:flex;gap:5px;overflow-x:auto;padding:0 0 14px;touch-action:pan-x}
+#recipe-categories button{padding:9px 12px;border:1px solid #a5805440;border-radius:8px;color:#cec1a9;background:#252b21;white-space:nowrap;font-size:11px}
+#recipe-categories button.active{background:#d6b47a;color:#30271b}
+.craft-workspace{display:grid;grid-template-columns:minmax(190px,.85fr) minmax(250px,1.15fr);gap:16px;align-items:start}
+#recipe-list.crafting-bar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-height:430px;overflow-y:auto;padding:5px;touch-action:pan-y}
+.recipe-tile{display:grid;justify-items:center;gap:8px;min-width:0;padding:14px 8px;border:2px solid #846143;border-radius:15px;background:linear-gradient(145deg,#4b4130,#262b21);color:#efe4c9;text-align:center}
+.recipe-tile.active{border-color:#f1cd83;box-shadow:inset 0 0 0 2px #e4b56455}
+.recipe-tile img{width:70px;height:70px;max-width:100%;object-fit:contain}
+.recipe-tile strong{font-size:12px}.recipe-tile small{font-size:9px;color:#d1c29d}.recipe-empty{grid-column:1/-1;color:#b7b9a8;font-size:12px}
+#craft-detail{display:grid;grid-template-columns:60px minmax(0,1fr);gap:12px;margin:0;padding:18px;background:linear-gradient(145deg,#393024,#172016);border:1px solid #ae865054;border-radius:16px}
+#craft-detail .craft-preview{width:60px;height:60px}#craft-detail .craft-preview img{width:100%;height:100%;padding:5px;object-fit:contain}
+#craft-detail h3{font-size:25px!important;margin:5px 0}.craft-copy p{font-size:12px;line-height:1.5;color:#bfc1aa}
+.ingredient-list{grid-column:1/-1;display:grid;gap:8px}
+#craft-detail .ingredient{display:flex;align-items:center;gap:10px;padding:10px;border-left:4px solid #bc6c4b;border-radius:9px;background:#51322a;color:#eee4cc;font-size:12px}
+#craft-detail .ingredient.enough{border-color:#9ac977;background:#30402a}
+#craft-detail .ingredient img{width:38px;height:38px;object-fit:contain}#craft-detail .ingredient strong{margin-left:auto;white-space:nowrap;font-size:12px}
+.tool-stats{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;font-size:10px;color:#c4c0a9}.tool-stats b{display:block;color:#f0dcae;margin-top:4px}
+.craft-action{grid-column:1/-1;min-height:46px;font-weight:bold;letter-spacing:.04em;background:linear-gradient(#c6d776,#8c9d40);color:#20270d}
+.craft-action:disabled{opacity:.65}
+@media(max-width:550px){#joystick{bottom:100px}body:not(.inventory-open) #hotbar .ui{width:42px;height:42px}}
+@media(max-width:1050px){#inventory-panel .inventory-body{grid-template-columns:1fr;gap:26px}#resource-list.inventory-bar{max-width:490px}.craft-workspace{grid-template-columns:minmax(190px,1fr) minmax(250px,1fr)}}
+@media(max-width:550px){#inventory-panel .inventory-body{width:calc(100% - 24px);padding:16px 0 110px}.craft-workspace{grid-template-columns:1fr}#recipe-list.crafting-bar{grid-template-columns:repeat(3,minmax(0,1fr));max-height:270px}.recipe-tile{padding:10px 5px}.recipe-tile img{width:64px;height:64px}.recipe-tile strong{font-size:10px}.recipe-tile small{font-size:8px}#craft-detail{padding:16px}#inventory-panel .inventory-header h2{font-size:30px!important}.move-hint{font-size:10px}#resource-list.inventory-bar{gap:5px}}
+@media(pointer:coarse),(max-width:700px){body:not(.inventory-open) #hotbar{bottom:max(12px,env(safe-area-inset-bottom));left:auto;right:12px;width:auto;transform:none}body:not(.inventory-open) #hotbar .ui{width:clamp(42px,9vw,58px);height:clamp(42px,9vw,58px)}#bag-button{z-index:36}body.inventory-open #bag-button{right:105px}#inventory-panel .inventory-body{touch-action:pan-y}}

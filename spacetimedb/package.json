@@ -1,0 +1,14 @@
+{
+  "name": "wildwood-spacetimedb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "spacetimedb": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

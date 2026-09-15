@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#17271e" />
+  <title>Wildwood Online</title>
+</head>
+<body>
+  <section id="auth" class="auth-screen">
+    <div class="lobby-glow"></div>
+    <form id="auth-form" class="auth-card" autocomplete="on">
+      <div class="lobby-kicker">WILDWOOD ACCOUNT</div>
+      <h1 id="auth-title">Welcome back</h1>
+      <p>Your inventory and position are stored with your account.</p>
+      <label>Nickname<input id="auth-username" name="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username" required></label>
+      <label>Password<input id="auth-password" name="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" required></label>
+      <label id="confirm-row" class="hidden">Confirm password<input id="confirm-password" name="confirmPassword" type="password" minlength="8" maxlength="128" autocomplete="new-password"></label>
+      <div id="auth-error" role="alert"></div>
+      <button id="auth-submit" class="primary-button" type="submit">Login &amp; play</button>
+      <button id="auth-switch" class="text-button" type="button">New explorer? Register</button>
+    </form>
+  </section>
+  <div id="game-hud" class="hidden">
+    <div class="brand"><span class="brand-mark">W</span><div><strong id="local-nickname">WILDWOOD</strong><small id="room-name">FOREST</small></div></div>
+    <div class="status-pills"><span class="pill"><i class="online-dot"></i><span id="online-status">Connecting</span></span><span class="pill" id="movement-status">Standing</span></div>
+    <div class="controls-hint"><kbd>WASD</kbd> Move <span></span> <kbd>Mouse</kbd> Look</div>
+    <button id="leave-server" class="icon-button" aria-label="Return to servers">Exit</button>
+  </div>
+  <section id="lobby" class="hidden">
+    <div class="lobby-glow"></div>
+    <main class="lobby-panel">
+      <div class="lobby-kicker">THREE-PLAYER ADVENTURE</div>
+      <h1>Wildwood <em>Online</em></h1>
+      <p class="intro">Enter a quiet low-poly valley. Explore the settlement together with up to three players.</p>
+      <div class="create-row"><input id="server-name" maxlength="24" placeholder="Name your camp" autocomplete="off" /><button id="create-server" class="primary-button">Create camp</button></div>
+      <div class="section-title"><span>AVAILABLE CAMPS</span><i></i></div>
+      <div id="lobby-error"></div>
+      <div id="server-list"><p class="empty-list">Searching the forest…</p></div>
+      <footer>WASD to move · Mouse to look · 3 players per camp <button id="logout-account" type="button">Log out</button></footer>
+    </main>
+  </section>
+  <div id="joystick" class="hidden" aria-label="Movement joystick"><div id="joystick-knob"></div></div>
+  <button id="mobile-action" class="hidden" type="button" aria-label="Use equipped tool"><img src="/assets/Models/survival-kit/Previews/resource-stone.png" alt=""><span>HIT</span></button>
+  <div id="crosshair" class="hidden"></div>
+  <div id="interaction-prompt" class="hidden"><kbd>CLICK</kbd><span>Click to Pick Up</span></div>
+  <div id="action-notice" class="hidden"></div>
+  <div id="hotbar" class="hidden"></div>
+  <button id="bag-button" class="ui hidden" type="button" aria-label="Open inventory"><span class="ui-item-clip"><img class="ui-item-img" src="/assets/img/Bag.png" alt="Bag"></span><img class="ui-corner" src="/assets/img/corner-of-hotbar-element.png" alt=""><span class="bag-label">6 / BAG</span></button>
+  <section id="inventory-panel" class="hidden" aria-label="Inventory and crafting">
+    <header class="inventory-header"><h2>Inventory</h2><button id="inventory-close" aria-label="Close inventory"><kbd>Tab</kbd><span>Close</span></button></header>
+    <div class="inventory-body homemade-ui">
+      <section class="inventory-column"><div class="panel-title"><span>BACKPACK</span><small id="inventory-capacity">0 / 15</small></div><p class="move-hint">Drag an item, or tap it then tap its destination.</p><div id="resource-list" class="inventory-bar"></div></section>
+      <section class="craft-column"><div class="panel-title"><span>CRAFTING</span><small>WORKSHOP</small></div><label class="recipe-search-label">Search recipes<input id="recipe-search" type="search" placeholder="Search tools, materials…"></label><nav id="recipe-categories" aria-label="Recipe categories"></nav><div class="craft-workspace"><div id="recipe-list" class="crafting-bar"></div><div id="craft-detail"></div></div></section>
+    </div>
+  </section>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

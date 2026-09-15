@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.verify-build/
+.env
+.env.*
+!.env.example
+.data/
+.runtime/
+spacetimedb/dist/
